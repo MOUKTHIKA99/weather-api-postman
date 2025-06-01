@@ -52,8 +52,12 @@ Update the variable in the imported environment
 4.Hit Send and view live weather data in Postman!
 
 5.Tools Used
-Postman
+   -Postman
+   -Git & GitHub
+   -WeatherAPI (Free tier)
 
-Git & GitHub
+Created By:
+Moukthika — Aspiring QA Automation Engineer.
+www.linkedin.com/in/lakshmi-moukthika-7a4149193
 
-WeatherAPI (Free tier)
+
