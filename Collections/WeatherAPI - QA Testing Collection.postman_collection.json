@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "3bac8a75-b6e6-48ae-8d38-955f1db01ed7",
+		"name": "WeatherAPI - QA Testing Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30259705"
+	},
+	"item": [
+		{
+			"name": "Get Current Weather (City)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"City name is returned\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.location.name).to.exist;",
+							"});",
+							"",
+							"pm.test(\"Temperature in Celsius is returned\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.current.temp_c).to.be.a('number');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/current.json?key={{api_key}}&q={{city}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"current.json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "q",
+							"value": "{{city}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
